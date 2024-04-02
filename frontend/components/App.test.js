@@ -13,7 +13,11 @@ describe('Module 4 Project Tests', () => {
     */
     test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
       render(<App lang="en" />)
-      expect(screen.getByText("Create an Account")).toBeVisible()
+      expect(screen.getByText(txt.en.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
+    })
+    test(`LABEL_USERNAME is visible`, () => {
+      render(<App lang="en" />)
+      expect(screen.getByLabelText(txt.en.LABEL_USERNAME)).toBeVisible()
     })
   })
   describe('Spanish Language', () => {
