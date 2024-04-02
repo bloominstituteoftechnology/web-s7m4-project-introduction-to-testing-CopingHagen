@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from './App'
+import txt from '../i18n/index.json'
 
 describe('Module 4 Project Tests', () => {
   describe('English Language', () => {
