@@ -3,6 +3,7 @@ import axios from 'axios'
 import * as yup from 'yup'
 import schemas from '../../shared/schemas'
 import txt from '../i18n/index.json'
+import { text } from 'express'
 
 /*
   👉 TASK 2
@@ -78,20 +79,20 @@ export default function App({ lang = 'en' }) {
 
         <div className="inputGroup">
           <label htmlFor="username">{texts.LABEL_USERNAME}</label>
-          <input id="username" name="username" onChange={onChange} value={values.username} type="text" placeholder="Type username" />
+          <input id="username" name="username" onChange={onChange} value={values.username} type="text" placeholder={texts.PLACEHOLDER_USERNAME} />
           {errors.username && <div className="validation">{errors.username}</div>}
         </div>
 
         <div className="inputGroup">
           <fieldset>
-            <legend>Favorite language:</legend>
+            <legend>{texts.TEXT_FAV_LANG}</legend>
             <label>
               <input onChange={onChange} type="radio" name="favLanguage" value="javascript" checked={values.favLanguage == 'javascript'} />
-              JavaScript
+              {texts.TEXT_FAV_LANG_JS}
             </label>
             <label>
               <input onChange={onChange} type="radio" name="favLanguage" value="rust" checked={values.favLanguage == 'rust'} />
-              Rust
+              {texts.TEXT_FAV_LANG_RUST}
             </label>
           </fieldset>
           {errors.favLanguage && <div className="validation">{errors.favLanguage}</div>}
