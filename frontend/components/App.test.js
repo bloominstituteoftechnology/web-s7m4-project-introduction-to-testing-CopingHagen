@@ -18,10 +18,13 @@ describe('Module 4 Project Tests', () => {
         expect(screen.getByText(val)).toBeVisible()
       })
     }
-    test(`LABEL_USERNAME is visible`, () => {
-      render(<App lang="en" />)
-      expect(screen.getByLabelText(txt.en.LABEL_USERNAME)).toBeVisible()
-    })
+    let labels = getEntriesByKeyPrefix(txt.en, 'LABEL')
+    for (let [key, val] of labels) {
+      test(`${key} is visible`, () => {
+        render(<App />)
+        expect(screen.getByLabelText(val)).toBeVisible()
+      })
+    }
     test(`PLACEHOLDER_USERNAME is visible`, () => {
       render(<App lang="en" />)
       expect(screen.getByPlaceholderText(txt.en.PLACEHOLDER_USERNAME)).toBeVisible()
