@@ -19,6 +19,10 @@ describe('Module 4 Project Tests', () => {
       render(<App lang="en" />)
       expect(screen.getByLabelText(txt.en.LABEL_USERNAME)).toBeVisible()
     })
+    test(`PLACEHOLDER_USERNAME is visible`, () => {
+      render(<App lang="en" />)
+      expect(screen.getByPlaceholderText(txt.en.PLACEHOLDER_USERNAME)).toBeVisible()
+    })
   })
   describe('Spanish Language', () => {
     /*
