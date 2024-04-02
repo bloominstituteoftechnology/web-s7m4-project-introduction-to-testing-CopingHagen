@@ -36,14 +36,20 @@ describe('Module 4 Project Tests', () => {
 
       This is done after making the UI multilingual.
     */
-    test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
-      render(<App lang="esp" />)
-      expect(screen.getByText(txt.esp.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
-      })
-    test(`LABEL_USERNAME is visible`, () => {
-      render(<App lang="esp" />)
-      expect(screen.getByLabelText(txt.esp.LABEL_USERNAME)).toBeVisible()
-      })
+      let texts = getEntriesByKeyPrefix(txt.en, 'TEXT')
+      for (let [key, val] of texts) {
+        test(`${key} is visible`, () => {
+          render(<App />)
+          expect(screen.getByText(val)).toBeVisible()
+        })
+      }
+      let labels = getEntriesByKeyPrefix(txt.en, 'LABEL')
+      for (let [key, val] of labels) {
+        test(`${key} is visible`, () => {
+          render(<App />)
+          expect(screen.getByLabelText(val)).toBeVisible()
+        })
+      }
     test(`PLACEHOLDER_USERNAME is visible`, () => {
       render(<App lang="esp" />)
       expect(screen.getByPlaceholderText(txt.esp.PLACEHOLDER_USERNAME)).toBeVisible()
